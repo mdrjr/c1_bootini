@@ -1,0 +1,14 @@
+#!/bin/sh
+
+/usr/sbin/update-initramfs -c -k `uname -r`
+mkimage -A arm -O linux -T ramdisk -C none -a 0 -e 0 -n "uInitrd" -d /boot/initrd.img-`uname -r` /boot/uInitrd-`uname -r`
+cp /boot/uInitrd-`uname -r` /media/boot/uInitrd
+
+
+echo
+echo
+echo
+echo
+echo "A new boot.ini is installed." 
+echo "Any changes to boot.ini is lost, such as display configuration" 
+echo "For reference your old boot.ini is saved at /root/boot.ini.old"
