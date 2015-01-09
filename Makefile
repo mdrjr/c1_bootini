@@ -1,5 +1,5 @@
 install:
-	install /media/boot/boot.ini /root/boot.ini.old
-	install boot.ini /media/boot
+	mkdir -p /usr/share/bootini
+	install boot.ini /usr/share/bootini
 	install display.sh /etc/initramfs-tools/scripts/local-top
 			
