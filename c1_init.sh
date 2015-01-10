@@ -98,3 +98,12 @@ case $mode in
 	1680x1050p60*) fbset -fb /dev/fb0 -g 1680 1050 1680 2100 $bpp; common_display_setup ;;
 	
 esac
+
+
+
+
+# Network Tweaks. Thanks to mlinuxguy
+echo 32768 > /proc/sys/net/core/rps_sock_flow_entries
+echo 2048 > /sys/class/net/eth0/queues/rx-0/rps_flow_cnt
+echo f > /sys/class/net/eth0/queues/rx-0/rps_cpus
+echo c > /sys/class/net/eth0/queues/tx-0/xps_cpus
