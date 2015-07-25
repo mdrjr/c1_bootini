@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Run OS File updates
+
+# 20150724 update. Changes the Audio device ID for HDMI
+chmod +x /usr/share/bootini/update_20150724.sh
+/usr/share/bootini/update_20150724.sh
+
+
 rm -fr /etc/initramfs-tools/scripts/local-top/display.sh
 
 cp /media/boot/boot.ini /media/boot/boot.ini.old
@@ -8,7 +15,6 @@ cp /usr/share/bootini/boot.ini /media/boot/boot.ini
 /usr/sbin/update-initramfs -c -k `uname -r`
 mkimage -A arm -O linux -T ramdisk -C none -a 0 -e 0 -n "uInitrd" -d /boot/initrd.img-`uname -r` /boot/uInitrd-`uname -r`
 cp /boot/uInitrd-`uname -r` /media/boot/uInitrd
-
 
 echo
 echo
