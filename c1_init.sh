@@ -26,6 +26,7 @@ common_display_setup() {
 	echo 1 > /sys/class/graphics/fb0/freescale_mode
 
 	case $outputmode in
+		480x800*) M="0 0 479 799" ;;
         	800x480*) M="0 0 799 479" ;;
 	        vga*)  M="0 0 639 749" ;;
 	        800x600p60*) M="0 0 799 599" ;;
@@ -52,6 +53,7 @@ common_display_setup() {
 }
 
 case $mode in
+	480x800*)	fbset -fb /dev/fb0 -g 480 800 480 1600 $bpp;	common_display_setup ;;
 	800x480*)	fbset -fb /dev/fb0 -g 800 480 800 960 $bpp;	common_display_setup ;;
 	vga*)		fbset -fb /dev/fb0 -g 640 480 640 960 $bpp;	common_display_setup ;;
 	480*)		fbset -fb /dev/fb0 -g 720 480 720 960 $bpp;	common_display_setup ;;
