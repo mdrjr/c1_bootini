@@ -1,0 +1,1 @@
+SUBSYSTEM=="meson-gpiomem", GROUP="sys", MODE="0660"
