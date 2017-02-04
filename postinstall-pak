@@ -16,7 +16,7 @@ cp /usr/share/bootini/boot.ini /media/boot/boot.ini
 mkimage -A arm -O linux -T ramdisk -C none -a 0 -e 0 -n "uInitrd" -d /boot/initrd.img-`uname -r` /boot/uInitrd-`uname -r`
 cp /boot/uInitrd-`uname -r` /media/boot/uInitrd
 
-usermod -a -G sys odroid
+usermod -a -G sys odroid || true
 
 echo
 echo
