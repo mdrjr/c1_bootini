@@ -13,12 +13,12 @@ cp /media/boot/boot.ini /media/boot/boot.ini.old
 cp /usr/share/bootini/boot.ini /media/boot/boot.ini
 
 #copy the default settings file if it doesn't exist
-if [ ! -f "/media/boot/boot.ini.default" ]; then
+##if [ ! -f "/media/boot/boot.ini.default" ]; then
    cp /usr/share/bootini/boot.ini.default /media/boot/boot.ini.default
-fi
+##fi
 
 #copy over user's custom settings (if any) from boot.ini.default
-/usr/share/bootini/bootini-persistence.pl 2>&1 | tee /tmp/bootini-persistence.txt
+#/usr/share/bootini/bootini-persistence.pl 2>&1 | tee /tmp/bootini-persistence.txt
 
 
 /usr/sbin/update-initramfs -c -k `uname -r`
